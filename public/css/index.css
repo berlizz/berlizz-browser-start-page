@@ -8,3 +8,15 @@
     padding-left: 5%;
     padding-right: 5%;
 }
+
+#loadingIcon {
+    width: 10%;
+    height: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#column {
+    text-align: center;
+    padding: 5%;
+}
