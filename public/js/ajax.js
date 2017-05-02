@@ -1,15 +1,16 @@
 $(document).ready(function() {
     
     $.getJSON("/tikitaka", function(data) {
-        console.log(data.html);
         $("#loadingIcon").css("display", "none");
         $("#column").append("<ul id='columnList'>" + data.html + "</ul>");
+
+        naverImageLazyLoad();
     });
 
     
 });
 
-$("#oneTwo, #oneSideCut, #buildUp6, #sports-g, #tikitaka, #footballism, #beautifulGame, #justFootball").click(function(event) {
+$("#oneTwo, #oneSideCut, #buildUp6, #sports-g, #tikitaka, #footballism, #beautifulGame, #justFootball, #zangsisi").click(function(event) {
     event.preventDefault();
     
     $("#columnList").remove();
@@ -22,6 +23,8 @@ $("#oneTwo, #oneSideCut, #buildUp6, #sports-g, #tikitaka, #footballism, #beautif
         $("#column").append("<ul id='columnList'>" + data.html + "</ul>");
         $(".active").removeClass();
         $("#" + url).parent().addClass("active");
+
+        naverImageLazyLoad();
     });
 });
 
@@ -36,3 +39,12 @@ $(document).on("click", ".thmb, .title", function(event) {
 
     window.location = "http://sports.news.naver.com" + $(this).attr("href");
 });
+
+function naverImageLazyLoad() {
+    var that = $(".imageLazyLoad");
+    if(that.length !== 0) {
+        that.each(function(index, element) {
+            $(element).attr("src", $(element).attr("lazy-src"));
+        });
+    }
+}

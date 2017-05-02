@@ -156,4 +156,18 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/zangsisi", function(req, res) {
+        request("http://zangsisi.net/", function(error, response, body) {
+            if(error) {
+                console.log(error);
+                res.send({"error": error});
+            }
+
+            var $ = cheerio.load(body);
+            var html = $("#recent-manga").html();
+
+            res.send({"html": html});
+        });
+    });
+
 };
