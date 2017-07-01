@@ -170,4 +170,27 @@ module.exports = function(app) {
         });
     });
 
+    // 이미지가 접근 제한 당함(핫링크)
+    app.get("/zangsisiList/:url", function(req, res) {
+        var url = req.params.url;
+
+        request("http://zangsisi.net/?p=" + url, function(error, response, body) {
+            if(error) {
+                console.log(error);
+                res.send({"error": error});
+            }
+
+            var $ = cheerio.load(body);
+
+            var html = "";
+            var imgs = $("#post img").each(function(index, item) {
+                console.log(item.attribs.src);
+                var img = "<img src='" + item.attribs.src + "'>";
+                html += img;
+            });
+
+            res.send({"html": html});
+        });
+    });
+
 };

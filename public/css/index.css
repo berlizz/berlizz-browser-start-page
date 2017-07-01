@@ -17,6 +17,8 @@
 }
 
 #column {
-    text-align: center;
-    padding: 5%;
+    text-align: left;
+    padding-left: 5%;
+    padding-right: 30%;
+    padding-top: 5%;
 }
