@@ -1,7 +1,7 @@
 {
   "name": "browser-start-page",
   "version": "1.0.0",
-  "description": "",
+  "description": "github으로 azure웹앱 배포 테스트",
   "main": "server.js",
   "scripts": {
     "start": "node server"
@@ -12,7 +12,17 @@
     "cheerio": "^0.22.0",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
-    "phantom": "^4.0.2",
+    "phantom": "^4.0.4",
+    "phantomjs-prebuilt": "^2.1.14",
     "request": "^2.81.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berlizz/browser-start-page.git"
+  },
+  "bugs": {
+    "url": "https://github.com/berlizz/browser-start-page/issues"
+  },
+  "homepage": "https://github.com/berlizz/browser-start-page#readme"
 }
